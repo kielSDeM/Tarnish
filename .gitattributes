@@ -1,0 +1,4 @@
+*.rs linguist-detectable=true
+*.bash linguist-detectable=true
+Makefile linguist-detectable=false
+
