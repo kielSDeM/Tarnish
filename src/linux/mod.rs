@@ -1,6 +1,7 @@
 pub mod virt;
 pub use virt::kali::Kali;
 pub use virt::lubu::Lubuntu;
+pub use virt::ubuserver::UbuServer;
 
 pub struct StartQemu {
     qemu: String,
@@ -15,7 +16,7 @@ impl StartQemu {
             "Choose which system to start: \n
         1: Lubuntu \n
         2: Kali \n
-        3: LXLE \n
+        3: Ubuntu-Server \n
         4: Arch \n
         5: Exit"
         );
@@ -31,6 +32,10 @@ impl StartQemu {
 
             "2" => {
                 tokio::join!(Kali::kali(), Kali::viewer(),);
+            }
+
+            "3" => {
+                tokio::join!(UbuServer::ubu(), UbuServer::viewer(),);
             }
 
             _ => {
